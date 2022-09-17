@@ -1,5 +1,6 @@
 package me.matrixaura.matrix.client;
 
+import me.matrixaura.matrix.module.modules.combat.*;
 import net.minecraft.client.Minecraft;
 import me.matrixaura.matrix.Matrix;
 import me.matrixaura.matrix.common.annotations.Parallel;
@@ -14,10 +15,6 @@ import me.matrixaura.matrix.hud.huds.CombatInfo;
 import me.matrixaura.matrix.hud.huds.Welcomer;
 import me.matrixaura.matrix.module.Module;
 import me.matrixaura.matrix.module.modules.client.*;
-import me.matrixaura.matrix.module.modules.combat.Anti32kTotem;
-import me.matrixaura.matrix.module.modules.combat.AutoTotem;
-import me.matrixaura.matrix.module.modules.combat.MatrixAura;
-import me.matrixaura.matrix.module.modules.combat.OffHandCrystal;
 import me.matrixaura.matrix.module.modules.misc.CustomChat;
 import me.matrixaura.matrix.module.modules.misc.SkinFlicker;
 import me.matrixaura.matrix.module.modules.misc.Spammer;
@@ -61,6 +58,7 @@ public class ModuleManager {
         registerNewModule(Anti32kTotem.class);
         registerNewModule(AutoTotem.class);
         registerNewModule(MatrixAura.class);
+        registerNewModule(MatrixCrystal.class);
         registerNewModule(OffHandCrystal.class);
 
         //Misc
