@@ -1,6 +1,5 @@
 package me.matrixaura.matrix.client;
 
-import me.matrixaura.matrix.module.modules.combat.*;
 import net.minecraft.client.Minecraft;
 import me.matrixaura.matrix.Matrix;
 import me.matrixaura.matrix.common.annotations.Parallel;
@@ -14,17 +13,12 @@ import me.matrixaura.matrix.hud.HUDModule;
 import me.matrixaura.matrix.hud.huds.CombatInfo;
 import me.matrixaura.matrix.hud.huds.Welcomer;
 import me.matrixaura.matrix.module.Module;
+import me.matrixaura.matrix.module.modules.combat.*;
 import me.matrixaura.matrix.module.modules.client.*;
-import me.matrixaura.matrix.module.modules.misc.CustomChat;
-import me.matrixaura.matrix.module.modules.misc.SkinFlicker;
-import me.matrixaura.matrix.module.modules.misc.Spammer;
-import me.matrixaura.matrix.module.modules.movement.Sprint;
-import me.matrixaura.matrix.module.modules.movement.Velocity;
-import me.matrixaura.matrix.module.modules.player.AntiContainer;
-import me.matrixaura.matrix.module.modules.player.AutoJump;
-import me.matrixaura.matrix.module.modules.player.FakePlayer;
-import me.matrixaura.matrix.module.modules.render.AntiOverlay;
-import me.matrixaura.matrix.module.modules.render.Brightness;
+import me.matrixaura.matrix.module.modules.misc.*;
+import me.matrixaura.matrix.module.modules.movement.*;
+import me.matrixaura.matrix.module.modules.player.*;
+import me.matrixaura.matrix.module.modules.render.*;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
