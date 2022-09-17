@@ -40,7 +40,7 @@ public class Matrix {
     @Listener(priority = Priority.HIGHEST)
     public void initialize(InitializationEvent.Initialize event) {
         long tookTime = runTiming(() -> {
-            Display.setTitle(MOD_NAME + " " + MOD_VERSION);
+            Display.setTitle(MOD_NAME + " " + MOD_VERSION_TYPE + MOD_VERSION);
 
             //Parallel load managers
             runBlocking(it -> {
