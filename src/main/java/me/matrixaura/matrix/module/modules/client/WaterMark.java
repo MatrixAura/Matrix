@@ -23,7 +23,7 @@ public class WaterMark extends Module {
     @Override
     public void onRender(RenderOverlayEvent event) {
         int color = GUIManager.isRainbow() ? rainbow(1) : GUIManager.getColor3I();
-        FontManager.draw(Matrix.MOD_NAME + " " + ChatUtil.SECTIONSIGN + "f" + Matrix.MOD_VERSION_TYPE + Matrix.MOD_VERSION, x.getValue() + 1, y.getValue() + 3, color);
+        FontManager.draw(Matrix.MOD_NAME + " " + ChatUtil.SECTIONSIGN + "f" + Matrix.MOD_VERSION, x.getValue() + 1, y.getValue() + 3, color);
     }
 
     public int rainbow(int delay) {

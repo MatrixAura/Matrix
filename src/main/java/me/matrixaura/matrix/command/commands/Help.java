@@ -17,7 +17,7 @@ public class Help extends Command {
 
     @Override
     public void onCall(String s, String[] args) {
-        ChatUtil.printChatMessage("\247b" + Matrix.MOD_NAME + " " + "\247a" + Matrix.MOD_VERSION_TYPE + Matrix.MOD_VERSION);
+        ChatUtil.printChatMessage("\247b" + Matrix.MOD_NAME + " " + "\247a" + Matrix.MOD_VERSION);
         ChatUtil.printChatMessage("\247c" + "Made by: " + Matrix.AUTHOR);
         ChatUtil.printChatMessage("\247c" + "Github: " + Matrix.GITHUB);
         ChatUtil.printChatMessage("\2473" + "Press " + "\247c" + Keyboard.getKeyName(ModuleManager.getModule(ClickGUI.class).bindSetting.getValue().getKeyCode()) + "\2473" + " to open ClickGUI");

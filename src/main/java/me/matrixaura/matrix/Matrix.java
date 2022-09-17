@@ -22,7 +22,6 @@ public class Matrix {
 
     public static final String MOD_NAME = "Matrix";
     public static final String MOD_VERSION = "220917";
-    public static final String MOD_VERSION_TYPE = "Dev";
 
     public static final String AUTHOR = "B_312 & MatrixAura";
     public static final String GITHUB = "https://github.com/MatrixAura/Matrix";
@@ -40,7 +39,7 @@ public class Matrix {
     @Listener(priority = Priority.HIGHEST)
     public void initialize(InitializationEvent.Initialize event) {
         long tookTime = runTiming(() -> {
-            Display.setTitle(MOD_NAME + " " + MOD_VERSION_TYPE + MOD_VERSION);
+            Display.setTitle(MOD_NAME + " " + MOD_VERSION);
 
             //Parallel load managers
             runBlocking(it -> {
