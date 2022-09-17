@@ -1,0 +1,23 @@
+{
+  "required": false,
+  "compatibilityLevel": "JAVA_8",
+  "package": "me.matrixaura.matrix.mixin.mixins",
+  "refmap": "mixins.matrix.refmap.json",
+  "mixins": [
+    "accessor.AccessorCPacketChatMessage",
+    "accessor.AccessorCPacketPlayer",
+    "accessor.AccessorCPacketUseEntity",
+    "accessor.AccessorMinecraft",
+    "accessor.AccessorRenderManager",
+    "accessor.AccessorSPacketEntityVelocity",
+    "accessor.AccessorSPacketExplosion",
+    "client.MixinMinecraft",
+    "entity.MixinEntityPlayerSP",
+    "network.MixinNetWork",
+    "render.MixinEntityRenderer",
+    "render.MixinGuiSubtitleOverlay"
+  ],
+  "client": [
+    "render.MixinModelBiped"
+  ]
+}
