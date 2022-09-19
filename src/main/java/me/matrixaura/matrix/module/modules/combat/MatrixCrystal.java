@@ -44,25 +44,32 @@ import static org.lwjgl.opengl.GL11.GL_QUADS;
 @ModuleInfo(name = "MatrixCrystal", category = Category.COMBAT)
 public class MatrixCrystal extends Module {
 
-    Setting<Boolean> autoSwitch = setting("AutoSwitch", false);
-    Setting<Boolean> lethalTry = setting("LethalTry", true);
-    Setting<Boolean> ver113Place = setting("1.13Place", false);
-    Setting<Integer> placeDelay = setting("PlaceDelay", 50, 0, 1000);
-    Setting<Integer> explodeDelay = setting("ExplodeDelay", 35, 0, 1000);
-    Setting<Double> distance = setting("CalcRange", 7.0D, 0.0D, 16.0D);
-    Setting<Double> placeRange = setting("Range", 4.5D, 0.0D, 8.0D);
-    Setting<Double> stopHealth = setting("StopHealth", 5.0D, 0.0D, 20.0D);
+    Setting<Page> nowPage = setting("Page", Page.General);
 
-    Setting<MatrixAura.RenderMode> renderMode = setting("RenderBlock", MatrixAura.RenderMode.Full).des("The render type");
-    Setting<Boolean> syncGUI = setting("SyncGui", false).des("Synchronize color with GUI");
-    Setting<Integer> red = setting("Red", 255, 0, 255).whenFalse(syncGUI).des("Custom color Red");
-    Setting<Integer> green = setting("Green", 0, 0, 255).whenFalse(syncGUI).des("Custom color Green");
-    Setting<Integer> blue = setting("Blue", 0, 0, 255).whenFalse(syncGUI).des("Custom color Blue");
-    Setting<Integer> transparency = setting("Alpha", 26, 0, 255).des("Custom transparency");
-    Setting<Boolean> rainbow = setting("Rainbow", false).whenFalse(syncGUI).des("Rainbow dynamic color");
-    Setting<Float> rainbowSpeed = setting("RGB Speed", 1.0f, 0.0f, 10.0f).whenFalse(syncGUI).des("Rainbow color change speed");
-    Setting<Float> saturation = setting("Saturation", 0.65f, 0.0f, 1.0f).whenFalse(syncGUI).des("Rainbow color saturation");
-    Setting<Float> brightness = setting("Brightness", 1.0f, 0.0f, 1.0f).whenFalse(syncGUI).des("Rainbow color brightness");
+    //  General
+    Setting<Boolean> lethalTry = setting("LethalTry", true).whenAtMode(nowPage, Page.General);
+    Setting<Double> distance = setting("CalcRange", 7.0D, 0.0D, 16.0D).whenAtMode(nowPage, Page.General);
+    Setting<Double> placeRange = setting("Range", 4.5D, 0.0D, 8.0D).whenAtMode(nowPage, Page.General);
+    Setting<Double> stopHealth = setting("StopHealth", 5.0D, 0.0D, 20.0D).whenAtMode(nowPage, Page.General);
+
+    //  Interact
+    Setting<Boolean> ghostHand = setting("GhostHand", true).whenAtMode(nowPage, Page.General);
+    Setting<Boolean> autoSwitch = setting("AutoSwitch", false).whenAtMode(nowPage, Page.Interact);
+    Setting<Boolean> ver113Place = setting("1.13Place", false).whenAtMode(nowPage, Page.Interact);
+    Setting<Integer> placeDelay = setting("PlaceDelay", 50, 0, 1000).whenAtMode(nowPage, Page.Interact);
+    Setting<Integer> explodeDelay = setting("ExplodeDelay", 35, 0, 1000).whenAtMode(nowPage, Page.Interact);
+
+    //  Render
+    Setting<MatrixAura.RenderMode> renderMode = setting("RenderBlock", MatrixAura.RenderMode.Full).whenAtMode(nowPage, Page.Render);
+    Setting<Boolean> syncGUI = setting("SyncGui", false).des("Synchronize color with GUI").whenAtMode(nowPage, Page.Render);
+    Setting<Integer> red = setting("Red", 255, 0, 255).whenFalse(syncGUI).whenAtMode(nowPage, Page.Render);
+    Setting<Integer> green = setting("Green", 0, 0, 255).whenFalse(syncGUI).whenAtMode(nowPage, Page.Render);
+    Setting<Integer> blue = setting("Blue", 0, 0, 255).whenFalse(syncGUI).whenAtMode(nowPage, Page.Render);
+    Setting<Integer> transparency = setting("Alpha", 26, 0, 255).whenAtMode(nowPage, Page.Render);
+    Setting<Boolean> rainbow = setting("Rainbow", false).whenFalse(syncGUI).whenAtMode(nowPage, Page.Render);
+    Setting<Float> rainbowSpeed = setting("RGB Speed", 1.0f, 0.0f, 10.0f).whenFalse(syncGUI).whenAtMode(nowPage, Page.Render);
+    Setting<Float> saturation = setting("Saturation", 0.65f, 0.0f, 1.0f).whenFalse(syncGUI).whenAtMode(nowPage, Page.Render);
+    Setting<Float> brightness = setting("Brightness", 1.0f, 0.0f, 1.0f).whenFalse(syncGUI).whenAtMode(nowPage, Page.Render);
 
 
     Timer placeTimer = new Timer();
@@ -263,5 +270,7 @@ public class MatrixCrystal extends Module {
         if (isOffhand || mc.player.getHeldItemOffhand().getItem() == Items.END_CRYSTAL)
             mc.player.connection.sendPacket(new CPacketPlayerTryUseItemOnBlock(blockPos, EnumFacing.UP, enumHand, 0, 0, 0));
     }
+
+    private enum Page {General, Interact, Render}
 
 }
