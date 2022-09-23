@@ -4,7 +4,9 @@ import com.google.gson.*;
 import me.matrixaura.matrix.core.common.KeyBind;
 import me.matrixaura.matrix.core.setting.Setting;
 import me.matrixaura.matrix.core.setting.settings.*;
+import me.matrixaura.matrix.utils.Palette;
 
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -118,6 +120,19 @@ public class ConfigContainer {
         BooleanSetting setting = new BooleanSetting(name, defaultValue);
         settings.add(setting);
         return setting;
+    }
+
+    public Setting<Integer> setting(String name, int defaultRed, int defaultGreen, int defaultBlue, int defaultAlpha) {
+        Palette palette = new Palette(
+                name,
+                new Color(defaultRed, defaultGreen, defaultBlue, defaultAlpha).getRGB(),
+                setting(name + " Red", defaultRed, 0, 255),
+                setting(name + " Red", defaultGreen, 0, 255),
+                setting(name + " Red", defaultBlue, 0, 255),
+                setting(name + " Red", defaultAlpha, 0, 255)
+        );
+        settings.add(palette);
+        return palette;
     }
 
     public Setting<Double> setting(String name, double defaultValue, double minValue, double maxValue) {
