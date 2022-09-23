@@ -27,6 +27,7 @@ public class CommandManager {
         register(Config.class);
         register(Friend.class);
         register(Help.class);
+        register(Dump.class);
         register(Prefix.class);
         register(Send.class);
         register(Toggle.class);
